@@ -1,7 +1,7 @@
 #!/bin/bash
 
 snakemake \
-    -s workflow/snakefile.smk \
+    -s workflow/snakefile \
     -c 7 \
     --use-conda \
     --keep-going \

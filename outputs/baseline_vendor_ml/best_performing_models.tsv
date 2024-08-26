@@ -1,0 +1,7 @@
+	model	num_occurences
+0	decision_tree	5
+2	grad_boost	5
+4	random_forest	5
+1	gaussian	2
+3	knn	2
+5	svc	2

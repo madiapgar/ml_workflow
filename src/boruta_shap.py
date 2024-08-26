@@ -145,8 +145,18 @@ if len(meta[args.predict_col].unique()) == 2:
 
 ## x - the side that has the data I want the model to use to predict y
 ## y - what is to be predicted
-xy_results = make_xy_tables(meta_df=meta,
-                            otu_df=ml_data_df,
+## making sure that the metadata can be matched back up to the y preds regardless of order
+meta_ordered = meta.sort_values(by=args.sample_id, ascending=True)
+meta_ordered = meta_ordered.drop("Unnamed: 0", axis=1)
+ordered_ml_df = ml_data_df.sort_values(by=args.sample_id, ascending=True)
+
+if 'Unnamed: 0' in ordered_ml_df.columns:
+    ordered_ml_df = ordered_ml_df.drop("Unnamed: 0", axis=1)
+else:
+    pass
+
+xy_results = make_xy_tables(meta_df=meta_ordered,
+                            otu_df=ordered_ml_df,
                             merge_on=args.sample_id,
                             y_col=args.predict_col)
 

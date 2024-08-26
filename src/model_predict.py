@@ -328,8 +328,18 @@ for value in top_model_list:
 
 ## x - the side that has the data I want the model to use to predict y
 ## y - what is to be predicted
-xy_results = make_xy_tables(meta_df=meta,
-                            otu_df=ml_data_df,
+## making sure that the metadata can be matched back up to the y preds regardless of order
+meta_ordered = meta.sort_values(by=args.sample_id, ascending=True)
+meta_ordered = meta_ordered.drop("Unnamed: 0", axis=1)
+ordered_ml_df = ml_data_df.sort_values(by=args.sample_id, ascending=True)
+
+if 'Unnamed: 0' in ordered_ml_df.columns:
+    ordered_ml_df = ordered_ml_df.drop("Unnamed: 0", axis=1)
+else:
+    pass
+
+xy_results = make_xy_tables(meta_df=meta_ordered,
+                            otu_df=ordered_ml_df,
                             merge_on=args.sample_id,
                             y_col=args.predict_col)
 
@@ -381,7 +391,7 @@ for label, model_func in filt_dict.items():
     pre_y_pred = predict_results["model_y_pred"]
     y_pred = pd.concat(pre_y_pred, ignore_index=True)
     y_pred[args.sample_id] = y_pred.index
-    comb_y_pred = y_pred.merge(meta, how='left', on=[args.sample_id])
+    comb_y_pred = y_pred.merge(meta_ordered, how='left', on=[args.sample_id])
     comb_y_pred["model"] = model_label
 
     comb_meta_dict.update({model_label: comb_y_pred})
