@@ -1,0 +1,6 @@
+	model	overall_score
+0	decision_tree	0.86
+1	grad_boost	0.9
+2	random_forest	0.9
+3	ridge_class	0.86
+4	svc	0.82

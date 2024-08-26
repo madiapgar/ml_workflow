@@ -1,0 +1,16 @@
+	feature	num_occurences	av_occurences	bs_model
+0	 f__Butyricicoccaceae	3	0.6	random_forest
+1	 f__Erysipelotrichaceae	2	0.4	random_forest
+2	 f__Acholeplasmataceae	1	0.2	random_forest
+3	 f__Akkermansiaceae	1	0.2	random_forest
+4	 f__Clostridia_vadinBB60_group	1	0.2	random_forest
+5	 f__Deferribacteraceae	1	0.2	random_forest
+6	 f__Prevotellaceae	1	0.2	random_forest
+7	 f__Rikenellaceae	1	0.2	random_forest
+8	 f__Erysipelotrichaceae	2	0.4	grad_boost
+9	 f__Akkermansiaceae	1	0.2	grad_boost
+10	 f__Deferribacteraceae	1	0.2	grad_boost
+11	 f__Peptostreptococcaceae	1	0.2	grad_boost
+12	 f__Prevotellaceae	1	0.2	grad_boost
+13	 f__Rikenellaceae	1	0.2	grad_boost
+14	 f__[Eubacterium]_coprostanoligenes_group	1	0.2	grad_boost

@@ -1,0 +1,8 @@
+	model	num_occurences
+0	decision_tree	5
+1	grad_boost	5
+4	random_forest	5
+5	ridge_class	4
+6	svc	4
+2	knn	2
+3	perceptron	1

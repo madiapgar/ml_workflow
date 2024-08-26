@@ -1,0 +1,17 @@
+name: ml
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - pip
+  - pip:
+    - snakemake
+    - scikit-learn
+    - scikit_posthocs
+    - matplotlib
+    - pandas
+    - seaborn
+    - pyarrow
+    - fastparquet
+    - BorutaShap
+    - argparse
