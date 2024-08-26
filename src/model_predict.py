@@ -380,8 +380,8 @@ for label, model_func in filt_dict.items():
     ## joining y-pred key and values to the metadata file
     pre_y_pred = predict_results["model_y_pred"]
     y_pred = pd.concat(pre_y_pred, ignore_index=True)
-    y_pred["mouse_id"] = y_pred.index
-    comb_y_pred = y_pred.merge(meta, how='left', on=["mouse_id"])
+    y_pred[args.sample_id] = y_pred.index
+    comb_y_pred = y_pred.merge(meta, how='left', on=[args.sample_id])
     comb_y_pred["model"] = model_label
 
     comb_meta_dict.update({model_label: comb_y_pred})
