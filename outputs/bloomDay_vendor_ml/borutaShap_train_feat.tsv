@@ -1,0 +1,9 @@
+	feature	num_occurences	av_occurences	bs_model
+0	 f__Enterobacteriaceae	5	1.0	random_forest
+1	 f__Morganellaceae	5	1.0	random_forest
+2	 f__Tannerellaceae	5	1.0	random_forest
+3	 f__Streptococcaceae	4	0.8	random_forest
+4	 f__Enterococcaceae	1	0.2	random_forest
+5	 f__Erysipelotrichaceae	1	0.2	random_forest
+6	 f__Morganellaceae	5	1.0	grad_boost
+7	 f__Tannerellaceae	1	0.2	grad_boost

@@ -276,16 +276,14 @@ knn_paramgrid = {
 ## gaussian nb classifier
 ## there are like no hyperparameters for this model lol idk what to do here
 gnb_paramgrid = {
-    'priors':      ['none'],
-    'var_smoothing': [1e-09],
-    'random_state':      [42]
+    'priors':      [None],
+    'var_smoothing': [1e-09]
 }
 ## perceptron
 per_paramgrid = {
     'penalty':   ['None', 'l2'],
     'alpha':     [0.0001, 0.001, 0.01, 0.1, 1.0],
-    'l1_ratio':  [0.15, 0],
-    'random_state':      [42]
+    'l1_ratio':  [0.15, 0]
 }
 
 ## putting them all into a dictionary together :)

@@ -1,11 +1,11 @@
 ## yay!! the config file!!
 
-project_name: "outputs/baseline_vendor_ml"
+project_name: "outputs/bloomDay_chow_highFiber_ml"
 metadata: "data/ml_approved_metadata.tsv"
-otu_table: "data/baselineFamily_wide.tsv"
+otu_table: "data/bloomDay_family_wide.tsv"
 meta_dictionary: "data/meta_dict_keys.tsv"
 sample_id_col: "mouse_id"
-y_predict_col: "vendor"
+y_predict_col: "chow_highFiber"
 boruta_shap: True
 ## if you have "ml" set up you can use the conda env
 ## you can also use the "ml_env.yml" in workflow/envs, the first option is just faster
