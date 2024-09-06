@@ -1,0 +1,11 @@
+	feature	num_occurences	av_occurences	bs_model
+0	 f__Bacteroidaceae	1	0.2	random_forest
+1	 f__Clostridiaceae	1	0.2	random_forest
+2	 f__Morganellaceae	1	0.2	random_forest
+3	 f__Ruminococcaceae	1	0.2	random_forest
+4	 f__UCG-010	1	0.2	random_forest
+5	 f__Bacteroidaceae	1	0.2	grad_boost
+6	 f__Clostridiaceae	1	0.2	grad_boost
+7	 f__Morganellaceae	1	0.2	grad_boost
+8	 f__RF39	1	0.2	grad_boost
+9	 f__Ruminococcaceae	1	0.2	grad_boost

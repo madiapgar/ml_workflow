@@ -1,51 +1,48 @@
-	assigned_num	mouse_id	diet	vendor	high_fiber	chow_highFiber	bloom_status
-0	0	CDD02.Tc.LFHF.4	LF/LF	charles_river	False	False	False
-1	1	CDD02.CR.Chow.4	HF/HF	taconic	True	True	True
-2	2	CDD02.Tc.HFHF.3	Chow				
-3	3	CDD02.CR.HFLF.1	HF/LF				
-4	4	CDD02.CR.HFLF.5	LF/HF				
-5	5	CDD02.CR.LFHF.1					
-6	6	CDD02.CR.LFLF.5					
-7	7	CDD02.Tc.Chow.3					
-8	8	CDD02.Tc.Chow.5					
-9	9	CDD02.Tc.LFHF.1					
-10	10	CDD02.CR.HFHF.3					
-11	11	CDD02.CR.LFLF.4					
-12	12	CDD02.CR.LFHF.5					
-13	13	CDD02.Tc.HFLF.1					
-14	14	CDD02.Tc.LFLF.4					
-15	15	CDD02.Tc.LFLF.1					
-16	16	CDD02.CR.HFHF.2					
-17	17	CDD02.CR.LFLF.1					
-18	18	CDD02.CR.HFHF.4					
-19	19	CDD02.CR.LFLF.2					
-20	20	CDD02.CR.Chow.1					
-21	21	CDD02.CR.HFHF.5					
-22	22	CDD02.CR.Chow.5					
-23	23	CDD02.Tc.HFLF.3					
-24	24	CDD02.Tc.LFLF.5					
-25	25	CDD02.CR.HFLF.4					
-26	26	CDD02.Tc.HFHF.2					
-27	27	CDD02.Tc.Chow.2					
-28	28	CDD02.Tc.Chow.4					
-29	29	CDD02.Tc.LFHF.2					
-30	30	CDD02.Tc.LFLF.2					
-31	31	CDD02.CR.LFHF.2					
-32	32	CDD02.Tc.HFLF.2					
-33	33	CDD02.Tc.HFHF.4					
-34	34	CDD02.CR.LFHF.4					
-35	35	CDD02.CR.LFLF.3					
-36	36	CDD02.Tc.LFHF.5					
-37	37	CDD02.Tc.HFHF.5					
-38	38	CDD02.Tc.Chow.1					
-39	39	CDD02.Tc.HFLF.5					
-40	40	CDD02.CR.Chow.2					
-41	41	CDD02.Tc.HFLF.4					
-42	42	CDD02.CR.HFLF.2					
-43	43	CDD02.Tc.LFHF.3					
-44	44	CDD02.Tc.LFLF.3					
-45	45	CDD02.Tc.HFHF.1					
-46	46	CDD02.CR.HFHF.1					
-47	47	CDD02.CR.Chow.3					
-48	48	CDD02.CR.HFLF.3					
-49	49	CDD02.CR.LFHF.3					
+	assigned_num	mouse_id	diet	vendor	bloom_status	status	high_fiber	chow_highFiber	pos_culture
+0	0	CDD02.CR.LFHF.1	Chow	charles_river	False	didnt_survive	False	False	False
+1	1	CDD02.CR.LFLF.2	LF/LF	taconic	True	survived	True	True	True
+2	2	CDD02.CR.Chow.3	HF/LF						
+3	3	CDD02.Tc.Chow.4	LF/HF						
+4	4	CDD02.Tc.HFHF.2	HF/HF						
+5	5	CDD02.Tc.LFLF.3							
+6	6	CDD02.CR.Chow.5							
+7	7	CDD02.CR.HFLF.3							
+8	8	CDD02.CR.LFHF.4							
+9	9	CDD02.CR.LFLF.4							
+10	10	CDD02.Tc.Chow.1							
+11	11	CDD02.Tc.LFHF.3							
+12	12	CDD02.Tc.LFHF.4							
+13	13	CDD02.CR.Chow.2							
+14	14	CDD02.CR.HFHF.1							
+15	15	CDD02.Tc.Chow.2							
+16	16	CDD02.Tc.HFHF.4							
+17	17	CDD02.Tc.Chow.5							
+18	18	CDD02.CR.LFHF.5							
+19	19	CDD02.CR.HFLF.2							
+20	20	CDD02.Tc.LFLF.1							
+21	21	CDD02.CR.HFHF.2							
+22	22	CDD02.Tc.HFLF.2							
+23	23	CDD02.CR.LFLF.5							
+24	24	CDD02.CR.Chow.1							
+25	25	CDD02.CR.HFLF.4							
+26	26	CDD02.CR.LFHF.2							
+27	27	CDD02.Tc.LFHF.1							
+28	28	CDD02.CR.Chow.4							
+29	29	CDD02.CR.LFLF.1							
+30	30	CDD02.Tc.HFLF.4							
+31	31	CDD02.CR.HFLF.5							
+32	32	CDD02.CR.HFHF.5							
+33	33	CDD02.Tc.HFLF.3							
+34	34	CDD02.CR.LFHF.3							
+35	35	CDD02.Tc.HFHF.3							
+36	36	CDD02.CR.HFHF.3							
+37	37	CDD02.CR.HFHF.4							
+38	38	CDD02.CR.HFLF.1							
+39	39	CDD02.CR.LFLF.3							
+40	40	CDD02.Tc.HFHF.5							
+41	41	CDD02.Tc.LFHF.2							
+42	42	CDD02.Tc.LFHF.5							
+43	43	CDD02.Tc.LFLF.2							
+44	44	CDD02.Tc.LFLF.5							
+45	45	CDD02.Tc.HFLF.5							
+46	46	CDD02.Tc.LFLF.4							

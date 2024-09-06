@@ -33,10 +33,6 @@ def get_args():
     parser.add_argument("-r", "--train_feat_out",
                         help="Path to where the accepted features from the training data will be saved as a .tsv file.",
                         default="None",
-                        type=str) 
-    parser.add_argument("-t", "--test_feat_out",
-                        help="Path to where the accepted features from the testing data will be saved as a .tsv file.",
-                        default="None",
                         type=str)
     return parser.parse_args()
 
@@ -73,7 +69,6 @@ def kfold_boruta_shap(k_fold,
     output_dict = {}
 
     train_list = []
-    test_list = []
     for i, (train_index, test_index) in enumerate(k_fold.split(x_dataframe, y_dataframe)):
         print(f"Fold {i}:")
         print(f"Training dataset index: {train_index}")
@@ -94,21 +89,9 @@ def kfold_boruta_shap(k_fold,
         
         train_acc_features = feature_selector.accepted
         train_list = train_list + train_acc_features
-        
-        ## running borta shap on testing data
-        feature_selector.fit(X=x_test,
-                             y=y_test, 
-                             n_trials=trial_num,
-                             random_state=0,
-                             sample=False,
-                             verbose=True)
-        
-        test_acc_features = feature_selector.accepted
-        test_list = test_list + test_acc_features
 
     ## saving my outputs
-    output_dict.update({"acc_train": train_list,
-                        "acc_test": test_list})
+    output_dict.update({"acc_train": train_list})
     return(output_dict)
 
 
@@ -167,7 +150,6 @@ y_dataframe = xy_results["y_dataframe"]
 
 ## for loop to run boruta shap on the data !!
 bs_acc_train = {}
-bs_acc_test = {}
 for label, boruta_shap in borutaShap_dict.items():
     bs_results = kfold_boruta_shap(k_fold=kf,
                                    feature_selector=boruta_shap,
@@ -181,23 +163,14 @@ for label, boruta_shap in borutaShap_dict.items():
     bs_train_df = create_occurence_table(input_list=bs_train_list)
     bs_train_df["bs_model"] = label
 
-    ## testing data
-    bs_test_list = bs_results["acc_test"]
-    bs_test_df = create_occurence_table(input_list=bs_test_list)
-    bs_test_df["bs_model"] = label
-
     bs_acc_train.update({f"{label}_accepted": bs_train_df})
-    bs_acc_test.update({f"{label}_accepted": bs_test_df})
 
 
 train_features = pd.concat(bs_acc_train, ignore_index=True)
-test_features = pd.concat(bs_acc_test, ignore_index=True)
-
 
 
 ## saving my outputs
 train_features.to_csv(args.train_feat_out, sep="\t")
-test_features.to_csv(args.test_feat_out, sep="\t")
 
 
 

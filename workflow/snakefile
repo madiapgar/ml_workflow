@@ -27,8 +27,7 @@ rule_all_list = [comb_filepaths(PROJECT, filepath) for filepath in out_list]
 
 if BORUTA_STAT == True:
     ## adding boruta shap rule outputs to the rule all list if it's true
-    boruta_out_list = ["borutaShap_train_feat.tsv",
-                        "borutaShap_test_feat.tsv"]
+    boruta_out_list = ["borutaShap_train_feat.tsv"]
     boruta_out_list = [comb_filepaths(PROJECT, filepath) for filepath in boruta_out_list]
     rule_all_list.append(boruta_out_list)
 
@@ -92,8 +91,7 @@ rule run_boruta_shap:
         metadata = META,
         otu_table = OTU
     output:
-        train_feat_out = os.path.join(PROJECT, "borutaShap_train_feat.tsv"),
-        test_feat_out = os.path.join(PROJECT, "borutaShap_test_feat.tsv")
+        train_feat_out = os.path.join(PROJECT, "borutaShap_train_feat.tsv")
     conda:
         CONDA_ENV
     params:
@@ -105,6 +103,5 @@ rule run_boruta_shap:
                                     --otu_table {input.otu_table} \
                                     --sample_id {params.sample_id} \
                                     --predict_col {params.predict_col} \
-                                    --train_feat_out {output.train_feat_out} \
-                                    --test_feat_out {output.test_feat_out}
+                                    --train_feat_out {output.train_feat_out}
         """

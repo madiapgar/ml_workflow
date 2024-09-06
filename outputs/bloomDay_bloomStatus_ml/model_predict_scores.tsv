@@ -1,0 +1,5 @@
+	model	overall_score
+0	decision_tree	0.8777777777777779
+1	grad_boost	0.8755555555555554
+2	random_forest	0.8377777777777776
+3	knn	0.8377777777777776
