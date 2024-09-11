@@ -7,7 +7,7 @@ This repository contains a machine learning workflow that can be used to predict
 **Overview**
 - Takes input data, metadata, and column name of what you want to be predicted and finds which machine learning models performed the best with the data before running a voter classifier using those top-performing models to give the final predictions and accuracy scores. 
 - Also gives the option to run Boruta SHAP on your data to identify important features (default is True). 
-- This workflow employs K-Fold cross validation (n=5).
+- This workflow employs K-Fold cross validation (n_splits=5).
 
 **Inputs**
 
@@ -31,7 +31,7 @@ This repository contains a machine learning workflow that can be used to predict
 
 - **If you also ran Boruta SHAP:**
     - `borutaShap_train_feat.tsv`: the top features in the training dataset that were important for what you want predicted
-    - `borutaShap_test_feat.tsv`: the top features in the testing  dataset that were important for what you want predicted
+    - `shap_plot.pdf`: a summary SHAP plot of the most important features to your model and why
 
 **Models used**
 
@@ -44,6 +44,8 @@ This repository contains a machine learning workflow that can be used to predict
 - Random Forest Classifier
 - Gradient Boosting Classifier
 - Ridge Classifier CV 
+
+
 
 
 

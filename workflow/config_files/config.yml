@@ -1,8 +1,8 @@
 ## yay!! the config file!!
 
-project_name: "outputs/bloomDay_survStat_ml"
+project_name: "outputs/baseline_survStat_ml"
 metadata: "data/ml_approved_metadata.tsv"
-otu_table: "data/bloomDay_family_wide.tsv"
+otu_table: "data/baselineFamily_wide.tsv"
 meta_dictionary: "data/meta_dict_keys.tsv"
 sample_id_col: "mouse_id"
 y_predict_col: "status"

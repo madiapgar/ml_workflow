@@ -5,6 +5,9 @@
 import argparse
 import pandas as pd
 import numpy as np
+import random as rnd
+import shap
+import matplotlib.pyplot as plt
 from BorutaShap import BorutaShap
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
@@ -32,6 +35,10 @@ def get_args():
                         type=str)
     parser.add_argument("-r", "--train_feat_out",
                         help="Path to where the accepted features from the training data will be saved as a .tsv file.",
+                        default="None",
+                        type=str)
+    parser.add_argument("-a", "--shap_plot_out",
+                        help="Path to where the overall SHAP plot will be saved as a .pdf",
                         default="None",
                         type=str)
     return parser.parse_args()
@@ -104,9 +111,18 @@ def create_occurence_table(input_list):
     return(wanted_df)
 
 
+## extracting shap plots outside of the big for loop to try and prevent my funky problem
+def give_shap_plot(values):
+   shap.plots.beeswarm(values, show=False)
+   plt.title(f"Summary SHAP Plot")
+   fig = plt.gcf()
+   return(fig)
+
+
 
 ## cross validator and boruta shap 
 kf = KFold(n_splits=5)
+rf_class = RandomForestClassifier()
 grad_boost = GradientBoostingClassifier(n_estimators=100)
 random_forest_bs = BorutaShap(importance_measure='shap', 
                               classification=False)
@@ -146,6 +162,10 @@ xy_results = make_xy_tables(meta_df=meta_ordered,
 x_dataframe = xy_results["x_dataframe"]
 y_dataframe = xy_results["y_dataframe"]
 
+## shuffling the columns of the x dataframe so boruta shap isn't biased
+num_cols = list(range(0, len(x_dataframe.columns)))
+rnd.shuffle(num_cols)
+shuff_x_dataframe = x_dataframe.iloc[:,num_cols]
 
 
 ## for loop to run boruta shap on the data !!
@@ -153,7 +173,7 @@ bs_acc_train = {}
 for label, boruta_shap in borutaShap_dict.items():
     bs_results = kfold_boruta_shap(k_fold=kf,
                                    feature_selector=boruta_shap,
-                                   x_dataframe=x_dataframe,
+                                   x_dataframe=shuff_x_dataframe,
                                    y_dataframe=y_dataframe,
                                    trial_num=100)
     
@@ -169,8 +189,22 @@ for label, boruta_shap in borutaShap_dict.items():
 train_features = pd.concat(bs_acc_train, ignore_index=True)
 
 
+## creating a shap summary plot for overall important features 
+shap_x_train,shap_x_test,shap_y_train,shap_y_test = train_test_split(shuff_x_dataframe,
+                                                                     y_dataframe,
+                                                                     test_size=0.2,
+                                                                     random_state=42)
+rf_class.fit(shap_x_train,
+             shap_y_train)
+explainer = shap.Explainer(rf_class.predict,
+                           shap_x_test)
+shap_values = explainer(shap_x_test)
+shap_plot = give_shap_plot(shap_values)
+
+
 ## saving my outputs
 train_features.to_csv(args.train_feat_out, sep="\t")
+shap_plot.savefig(args.shap_plot_out, dpi=150, format='pdf', bbox_inches='tight')
 
 
 
